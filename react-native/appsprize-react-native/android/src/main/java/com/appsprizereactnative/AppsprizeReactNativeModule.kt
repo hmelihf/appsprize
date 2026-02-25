@@ -200,19 +200,6 @@ class AppsprizeReactNativeModule(reactContext: ReactApplicationContext): ReactCo
 
     private fun buildStyleConfig(map: Map<String, Any?>?): AppsPrizeStyleConfig? {
         map ?: return null
-        val primaryColor = (map["primaryColor"] as? String)?.let { Color.parseColor(it) }
-        val secondaryColor = (map["secondaryColor"] as? String)?.let { Color.parseColor(it) }
-        val highlightColor = (map["highlightColor"] as? String)?.let { Color.parseColor(it) }
-
-        val offerCardColor = (map["offerCardColor"] as? String)?.let { Color.parseColor(it) }
-
-        val promotionHighlightColor = (map["promotionHighlightColor"] as? String?)?.let { Color.parseColor(it) }
-        val dailyHighlightColor = (map["dailyHighlightColor"] as? String?)?.let { Color.parseColor(it) }
-        val cashbackHighlightColor = (map["cashbackHighlightColor"] as? String?)?.let { Color.parseColor(it) }
-        val secondChanceHighlightColor = (map["secondChanceHighlightColor"] as? String?)?.let { Color.parseColor(it) }
-        val commonTaskHighlightColor = (map["commonTaskHighlightColor"] as? String?)?.let { Color.parseColor(it) }
-        val epicTaskHighlightColor = (map["epicTaskHighlightColor"] as? String?)?.let { Color.parseColor(it) }
-        val legendaryTaskHighlightColor = (map["legendaryTaskHighlightColor"] as? String?)?.let { Color.parseColor(it) }
 
         val typeface = getTypeface(reactApplicationContext, map["typeface"] as? String)
         val bannerDrawable = getDrawable(reactApplicationContext, map["bannerDrawable"] as? String)
@@ -220,23 +207,85 @@ class AppsprizeReactNativeModule(reactContext: ReactApplicationContext): ReactCo
         val appsTitleText = map["appsTitleText"] as? String
         val currencyIcon = getDrawable(reactApplicationContext, map["currencyIcon"] as? String)
 
+        val screenBackgroundColor = (map["screenBackgroundColor"] as? String)?.let { Color.parseColor(it) }
+        val primaryTextColor = (map["primaryTextColor"] as? String)?.let { Color.parseColor(it) }
+        val onboardingBackgroundColor = (map["onboardingBackgroundColor"] as? String)?.let { Color.parseColor(it) }
+        val bottomFloatingBackgroundColor = (map["bottomFloatingBackgroundColor"] as? String)?.let { Color.parseColor(it) }
+        val bottomFloatingBorderColor = (map["bottomFloatingBorderColor"] as? String)?.let { Color.parseColor(it) }
+        val bottomNavigationTextColor = (map["bottomNavigationTextColor"] as? String)?.let { Color.parseColor(it) }
+        val bottomNavigationActiveColor = (map["bottomNavigationActiveColor"] as? String)?.let { Color.parseColor(it) }
+        val itemTitleTextColor = (map["itemTitleTextColor"] as? String)?.let { Color.parseColor(it) }
+        val itemCategoryTextColor = (map["itemCategoryTextColor"] as? String)?.let { Color.parseColor(it) }
+        val itemImageBorderColor = (map["itemImageBorderColor"] as? String)?.let { Color.parseColor(it) }
+        val itemBackgroundColor = (map["itemBackgroundColor"] as? String)?.let { Color.parseColor(it) }
+        val itemBorderColor = (map["itemBorderColor"] as? String)?.let { Color.parseColor(it) }
+        val itemProgressColor = (map["itemProgressColor"] as? String)?.let { Color.parseColor(it) }
+        val itemProgressBackgroundColor = (map["itemProgressBackgroundColor"] as? String)?.let { Color.parseColor(it) }
+        val appsSelectItemBackgroundColor = (map["appsSelectItemBackgroundColor"] as? String)?.let { Color.parseColor(it) }
+        val buttonTextColor = (map["buttonTextColor"] as? String)?.let { Color.parseColor(it) }
+        val itemPurchaseCashbackTextColor = (map["itemPurchaseCashbackTextColor"] as? String)?.let { Color.parseColor(it) }
+        val itemPurchaseCashbackBackgroundColor = (map["itemPurchaseCashbackBackgroundColor"] as? String)?.let { Color.parseColor(it) }
+        val itemPurchaseCashbackHighlightColor = (map["itemPurchaseCashbackHighlightColor"] as? String)?.let { Color.parseColor(it) }
+        val itemDetailCompleteBorderColor = (map["itemDetailCompleteBorderColor"] as? String)?.let { Color.parseColor(it) }
+        val itemLimitedRewardTextColor = (map["itemLimitedRewardTextColor"] as? String)?.let { Color.parseColor(it) }
+        val itemLimitedRewardBorderColor = (map["itemLimitedRewardBorderColor"] as? String)?.let { Color.parseColor(it) }
+        val promotionRewardTextColor = (map["promotionRewardTextColor"] as? String)?.let { Color.parseColor(it) }
+        val promotionIconColor = (map["promotionIconColor"] as? String)?.let { Color.parseColor(it) }
+        val inboxTimeTitleColor = (map["inboxTimeTitleColor"] as? String)?.let { Color.parseColor(it) }
+
+        val featuredBackgroundColors = (map["featuredBackgroundColors"] as? List<*>)
+            ?.mapNotNull { (it as? String)?.let { s -> Color.parseColor(s) } }
+        val buttonBackgroundColor = (map["buttonBackgroundColor"] as? List<*>)
+            ?.mapNotNull { (it as? String)?.let { s -> Color.parseColor(s) } }
+        val itemDetailPurchaseCashbackColor = (map["itemDetailPurchaseCashbackColor"] as? List<*>)
+            ?.mapNotNull { (it as? String)?.let { s -> Color.parseColor(s) } }
+        val itemDetailDailyColor = (map["itemDetailDailyColor"] as? List<*>)
+            ?.mapNotNull { (it as? String)?.let { s -> Color.parseColor(s) } }
+        val itemLimitedRewardBackgroundColors = (map["itemLimitedRewardBackgroundColors"] as? List<*>)
+            ?.mapNotNull { (it as? String)?.let { s -> Color.parseColor(s) } }
+        val promotionGradientColor = (map["promotionGradientColor"] as? List<*>)
+            ?.mapNotNull { (it as? String)?.let { s -> Color.parseColor(s) } }
+        val secondChanceBackgroundColors = (map["secondChanceBackgroundColors"] as? List<*>)
+            ?.mapNotNull { (it as? String)?.let { s -> Color.parseColor(s) } }
+
         return AppsPrizeStyleConfig.Builder()
-            .setPrimaryColor(primaryColor)
-            .setSecondaryColor(secondaryColor)
-            .setHighlightColor(highlightColor)
-            .setOfferCardColor(offerCardColor)
-            .setPromotionHighlightColor(promotionHighlightColor)
-            .setDailyHighlightColor(dailyHighlightColor)
-            .setCashbackHighlightColor(cashbackHighlightColor)
-            .setSecondChanceHighlightColor(secondChanceHighlightColor)
-            .setCommonTaskHighlightColor(commonTaskHighlightColor)
-            .setEpicTaskHighlightColor(epicTaskHighlightColor)
-            .setLegendaryTaskHighlight(legendaryTaskHighlightColor)
             .setTypeface(typeface)
             .setBannerDrawable(bannerDrawable)
             .setOffersTitleText(offersTitleText)
             .setAppsTitleText(appsTitleText)
             .setCurrencyIcon(currencyIcon)
+            .setScreenBackgroundColor(screenBackgroundColor)
+            .setPrimaryTextColor(primaryTextColor)
+            .setOnboardingBackgroundColor(onboardingBackgroundColor)
+            .setBottomFloatingBackgroundColor(bottomFloatingBackgroundColor)
+            .setBottomFloatingBorderColor(bottomFloatingBorderColor)
+            .setBottomNavigationTextColor(bottomNavigationTextColor)
+            .setBottomNavigationActiveColor(bottomNavigationActiveColor)
+            .setItemTitleTextColor(itemTitleTextColor)
+            .setItemCategoryTextColor(itemCategoryTextColor)
+            .setItemImageBorderColor(itemImageBorderColor)
+            .setItemBackgroundColor(itemBackgroundColor)
+            .setItemBorderColor(itemBorderColor)
+            .setItemProgressColor(itemProgressColor)
+            .setItemProgressBackgroundColor(itemProgressBackgroundColor)
+            .setAppsSelectItemBackgroundColor(appsSelectItemBackgroundColor)
+            .setButtonTextColor(buttonTextColor)
+            .setItemPurchaseCashbackTextColor(itemPurchaseCashbackTextColor)
+            .setItemPurchaseCashbackBackgroundColor(itemPurchaseCashbackBackgroundColor)
+            .setItemPurchaseCashbackHighlightColor(itemPurchaseCashbackHighlightColor)
+            .setItemDetailCompleteBorderColor(itemDetailCompleteBorderColor)
+            .setItemLimitedRewardTextColor(itemLimitedRewardTextColor)
+            .setItemLimitedRewardBorderColor(itemLimitedRewardBorderColor)
+            .setPromotionRewardTextColor(promotionRewardTextColor)
+            .setPromotionIconColor(promotionIconColor)
+            .setInboxTimeTitleColor(inboxTimeTitleColor)
+            .setFeaturedBackgroundColors(featuredBackgroundColors)
+            .setButtonBackgroundColor(buttonBackgroundColor)
+            .setItemDetailPurchaseCashbackColor(itemDetailPurchaseCashbackColor)
+            .setItemDetailDailyColor(itemDetailDailyColor)
+            .setItemLimitedRewardBackgroundColors(itemLimitedRewardBackgroundColors)
+            .setPromotionGradientColor(promotionGradientColor)
+            .setSecondChanceBackgroundColors(secondChanceBackgroundColors)
             .build()
     }
 

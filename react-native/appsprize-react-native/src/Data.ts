@@ -15,22 +15,43 @@ export interface AppsPrizeConfig {
 }
 
 export interface AppsPrizeStyleConfig {
-    primaryColor?: string;
-    secondaryColor?: string;
-    highlightColor?: string;
-    offerCardColor?: string;
-    promotionHighlightColor?: string;
-    dailyHighlightColor?: string;
-    cashbackHighlightColor?: string;
-    secondChanceHighlightColor?: string;
-    commonTaskHighlightColor?: string;
-    epicTaskHighlightColor?: string;
-    legendaryTaskHighlightColor?: string;
     typeface?: string;
     bannerDrawable?: string;
     offersTitleText?: string;
     appsTitleText?: string;
     currencyIcon?: string;
+    screenBackgroundColor?: string;
+    primaryTextColor?: string;
+    onboardingBackgroundColor?: string;
+    bottomFloatingBackgroundColor?: string;
+    bottomFloatingBorderColor?: string;
+    bottomNavigationTextColor?: string;
+    bottomNavigationActiveColor?: string;
+    itemTitleTextColor?: string;
+    itemCategoryTextColor?: string;
+    itemImageBorderColor?: string;
+    itemBackgroundColor?: string;
+    itemBorderColor?: string;
+    itemProgressColor?: string;
+    itemProgressBackgroundColor?: string;
+    appsSelectItemBackgroundColor?: string;
+    buttonTextColor?: string;
+    itemPurchaseCashbackTextColor?: string;
+    itemPurchaseCashbackBackgroundColor?: string;
+    itemPurchaseCashbackHighlightColor?: string;
+    itemDetailCompleteBorderColor?: string;
+    itemLimitedRewardTextColor?: string;
+    itemLimitedRewardBorderColor?: string;
+    promotionRewardTextColor?: string;
+    promotionIconColor?: string;
+    inboxTimeTitleColor?: string;
+    featuredBackgroundColors?: string[];
+    buttonBackgroundColor?: string[];
+    itemDetailPurchaseCashbackColor?: string[];
+    itemDetailDailyColor?: string[];
+    itemLimitedRewardBackgroundColors?: string[];
+    promotionGradientColor?: string[];
+    secondChanceBackgroundColors?: string[];
 }
 
 export interface AppsPrizeOptions {
