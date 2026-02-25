@@ -1,5 +1,8 @@
 # Release Notes
 
+### 2.4.0 (25.02.2026)
+* updated with light theme design
+
 ### 2.3.1 (17.04.2025)
 * fixed local cache invalidation
 
